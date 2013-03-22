@@ -107,7 +107,7 @@ a:visited {
 .content {
   position: absolute;
   z-index: 1000;
-  padding: 15px;
+  padding: 20px 15px 50px 15px;
   margin-top: 50px;
   margin-left: 300px;
   min-height: 75%;

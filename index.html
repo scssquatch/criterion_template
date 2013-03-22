@@ -42,7 +42,7 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script>
       $(".dead").click(function () {
-        //event.preventDefault();
+        event.preventDefault();
         $("a").attr('class', "dead");
         $(this).attr('class', "alive");
         var section = $(this).text().toLowerCase();
@@ -54,7 +54,7 @@
       });
 
       $(".logo").click(function () {
-        //event.preventDefault();
+        event.preventDefault();
         $('#main-body').hide('fast');
         $("a").attr('class', "dead");
       });
