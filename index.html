@@ -6,10 +6,7 @@
     <link href="css/main.css" rel="stylesheet">
   </head>
   <body>
-    <video id="video_background" preload="auto" autoplay="true" loop="loop" muted="" volume="0">
-      <source src="videos/times_square.mp4" type="video/mp4">
-    </video>
-    <img class="logo" src="images/criterion-logo.png" height="75px" width="75px"/></br></br>
+    <div class="logo"><a href="#"><img src="images/criterion-logo.png" height="75px" width="75px"/></a></div>
     <div class="span1">
       <!--Sidebar content-->
       <div class="well">
@@ -27,12 +24,25 @@
         <a class="dead" href="#">CONTACT</a></br>
       </div>
     </div>
-    <div id="main-body">
+    <div id="main-body"> 
     </div>
+    <video id="video_background" preload="auto" autoplay="true" loop="loop" muted="" volume="0">
+      <!-- MP4 must be first for iPad! -->
+      <source src="videos/times_square.mp4" type="video/mp4" /><!-- WebKit video    -->
+      <source src="videos/times_square.ogv" type="video/ogg" /><!-- Firefox / Opera -->
+      <!-- fallback to Flash: -->
+      <object type="application/x-shockwave-flash" data="videos/times_square.swf">
+        <!-- Firefox uses the `data` attribute above, IE/Safari uses the param below -->
+        <param name="movie" value="videos/times_square.swf" />
+        <param name="flashvars" value="image=no_video.jpg&amp;file=videos/times_square.mp4" />
+        <!-- fallback image. note the title field below, put the title of the video there -->
+        <img src="images/no_video.jpg" alt="Background Video" title="times_square" />
+      </object>
+    </video>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script>
-      $("a").click(function () {
-
+      $(".dead").click(function () {
+        //event.preventDefault();
         $("a").attr('class', "dead");
         $(this).attr('class', "alive");
         var section = $(this).text().toLowerCase();
@@ -44,9 +54,11 @@
       });
 
       $(".logo").click(function () {
-        $('#main-body').hide('slow');
+        //event.preventDefault();
+        $('#main-body').hide('fast');
         $("a").attr('class', "dead");
       });
+
     </script>
   </body>
 </html>
