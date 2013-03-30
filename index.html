@@ -36,7 +36,7 @@
         $("a").attr('class', "dead");
         $(this).attr('class', "alive");
         var section = $(this).text().toLowerCase();
-        $('#main-body').hide('slow', function() {
+        $('#main-body').hide('normal', function() {
           $('#main-body').load('content.html ' + "#" + section);
         });
         $('#main-body').show('normal');
