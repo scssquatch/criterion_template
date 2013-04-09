@@ -3,29 +3,62 @@
   <head>
     <meta charset=utf-8">
     <title>Criterion Template</title>
-    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div class="logo"><a href="#"><img src="images/criterion-logo.png" height="75px" width="75px"/></a></div>
-    <div class="span1">
-      <!--Sidebar content-->
-      <div class="well">
-          <p class="rotate criterion">
-            THE &nbsp;CRITERION &nbsp;COLLECTION
-          </p>
+
+    <script type="text/x-handlebars">
+      <div class="logo"><a href="#"><img src="images/criterion-logo.png" height="75px" width="75px"/></a></div>
+      <div class="span1">
+        <!--Sidebar content-->
+        <div class="well">
+            <p class="rotate criterion">
+              THE &nbsp;CRITERION &nbsp;COLLECTION
+            </p>
+        </div>
       </div>
-    </div>
-    <div class="span1">
-      <!--Sidebar content-->
-      <div class="well2" id="well2">
-        <a class="dead" href="#">FILMS</a></br>
-        <a class="dead" href="#">PHOTOS</a></br>
-        <a class="dead" href="#">LINKS</a></br>
-        <a class="dead" href="#">CONTACT</a></br>
+      <div class="span1">
+        <!--Sidebar content-->
+        <div class="well2" id="well2">
+          {{#linkTo "films"}}FILMS{{/linkTo}}</br>
+          {{#linkTo "photos"}}PHOTOS{{/linkTo}}</br>
+          {{#linkTo "links"}}LINKS{{/linkTo}}</br>
+          {{#linkTo "contact"}}CONTACT{{/linkTo}}</br>
+        </div>
       </div>
-    </div>
-    <div id="main-body"> 
-    </div>
+      {{outlet}}
+    </script>
+    <script type="text/x-handlebars" data-template-name="films">
+      <div class="content">
+        FILMS</br></br>
+        <iframe src="http://player.vimeo.com/video/61348049" width="700" height="381" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/61348049">TAKE MY PICTURE</a> from <a href="http://vimeo.com/user15707092">GARAGE Magazine</a> on <a href="http://vimeo.com">Vimeo</a>.</p></br>
+        <iframe src="http://player.vimeo.com/video/61315592?portrait=0&amp;badge=0&amp;color=ffffff" width="700" height="318" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/61315592">RUFUS | TAKE ME</a> from <a href="http://vimeo.com/katzkivideo">Katzki</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+      </div>
+    </script>
+    <script type="text/x-handlebars" data-template-name="photos">
+      <div class="content">
+        PHOTOS</br></br>
+        <img class="photo" src="http://www.placecage.com/c/300/200"/>
+        <img class="photo" src="http://www.placecage.com/c/200/300"/>
+        <img class="photo" src="http://www.placecage.com/c/300/500"/>
+        <img class="photo" src="http://www.placecage.com/c/600/800"/>
+        <img class="photo" src="http://www.placecage.com/c/400/100"/>
+        <img class="photo" src="http://www.placecage.com/c/600/200"/>
+        <img class="photo" src="http://www.placecage.com/c/100/300"/>
+        <img class="photo" src="http://www.placecage.com/c/200/200"/>
+        <img class="photo" src="http://www.placecage.com/c/700/400"/>
+      </div>
+    </script>
+    <script type="text/x-handlebars" data-template-name="links">
+      <div class="content">
+        LINKS</br></br>
+      </div>
+    </script>
+    <script type="text/x-handlebars" data-template-name="contact">
+      <div class="content">
+        CONTACT INFO</br></br>
+      </div>
+    </script>
     <video id="video_background" preload="auto" autoplay="true" loop="loop" muted="" volume="0">
       <!-- MP4 must be first for iPad! -->
       <source src="videos/times_square.mp4" type="video/mp4" /><!-- WebKit video    -->
@@ -39,7 +72,11 @@
         <img src="images/no_video.jpg" alt="Background Video" title="times_square" />
       </object>
     </video>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/libs/jquery-1.9.1.js"></script>
+    <script src="js/libs/handlebars-1.0.0-rc.3.js"></script>
+    <script src="js/libs/ember-1.0.0-rc.2.js"></script>
+    <script src="js/app.js"></script>
+    <!--Old ajax way of loading content, before using ember.js
     <script>
       $(".dead").click(function () {
         //event.preventDefault();
@@ -58,7 +95,7 @@
         $('#main-body').hide('fast');
         $("a").attr('class', "dead");
       });
-
     </script>
+    -->
   </body>
 </html>
