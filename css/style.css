@@ -118,14 +118,9 @@ a:visited {
   font-family: Gothamy, Gotham-Medium, Arial, sans-serif;
 }
 
-.dead {
-  font-family: Gothamy, Gotham-Medium, Arial, sans-serif;
-}
-
-.alive {
-  font-weight: bold;
-}
-
 img {
   padding: 20px;
+}
+.active{
+  font-weight: bold;
 }
